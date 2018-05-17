@@ -1,32 +1,57 @@
-$font-stack:    Helvetica, sans-serif;
+$font-stack: Helvetica,
+sans-serif;
 $primary-color: #d3a91f;
 $secondary-color: #141212;
 $width: 100%;
 $space: 20px;
-
-html, body, p , ul{
+html,
+body,
+p,
+ul {
     margin: 0;
     padding: 0;
-  }
-  body {
+}
+
+body {
     font: 100% $font-stack;
     color: $primary-color;
-  
-  }
-  header{
-      padding:$space*2 0 $space;
-  }
-  ul {
-    list-style: none;
+}
 
+header {
+    padding: $space*2 0 $space;
+    margin: 0 auto;
+    width: $width*.9;
+}
+
+ul {
+    list-style: none;
     li {
         margin: 0;
         display: inline;
+        &:nth-child(1) a:hover{background:blue;
+        }
+        &:nth-child(2) a:hover{background:pink;
+        }
+        &:nth-child(3) a:hover{background:yellow;
+        }
+        &:nth-child(4) a:hover{background:purple;
+        }
+        &:nth-child(5) a:hover{background:green;
+        }
+        &:nth-child(6) a:hover{background:red;
+        }
         a {
             text-decoration: none;
-            color: $secondary-color;
-            background: $primary-color;
+            color: $primary-color;
+            background: $secondary-color;
             padding: $space/4 $space/2;
+            transition: background-color 0.5s ease;
+            &::before {
+                content: "\~"
+            }
+           
+
+
         }
     }
 }
@@ -35,12 +60,70 @@ article {
     background: grayscale($primary-color);
     color: $secondary-color;
     padding: $space/2;
+    blockquote::before {
+        content: "\"";
+    }
+    blockquote::after {
+        content: "\"";
+    }
+    &::first-letter {
+        font-size: 150%;
+    }
+    &:first-child {
+        background: white;
+    }
+    &:last-child {
+        background: white;
+    }
+    &:nth-of-type(4n+2) {
+        color: $primary-color;
+    }
+    &:nth-of-type(4n+3) {
+        color: $primary-color;
+    }
+    &:nth-child(1) {
+        grid-column: 1 / span 1;
+    }
+    &:nth-child(2) {
+        grid-column: 2 / span 2;
+    }
+    &:nth-child(3) {
+        grid-column: 1 / span 2;
+    }
+    &:nth-child(4) {
+        grid-column: 3 / span 1;
+    }
+    &:nth-child(5) {
+        grid-column: 1 / span 1;
+    }
+    &:nth-child(6) {
+        grid-column: 2 / span 2;
+    }
+    &:nth-child(7) {
+        grid-column: 1 / span 2;
+    }
+    &:nth-child(8) {
+        grid-column: 3 / span 1;
+    }
+    &:nth-child(9) {
+        grid-column: 1 / span 1;
+    }
+    &:nth-child(10) {
+        grid-column: 2 / span 2;
+    }
+    &:nth-child(11) {
+        grid-column: 1 / span 2;
+    }
+    &:nth-child(12) {
+        grid-column: 3 / span 1;
+    }
 }
+
 main {
     width: $width*.9;
     margin: 0 auto;
-    background: lighten($secondary-color, 10%);
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-gap: $space/2;
-  }
+    background: $primary-color;
+    display: grid; // grid-template-columns: repeat(4, 1fr);
+    grid-gap: $space/3;
+    grid-template-columns: 25% 50% 24%;
+}
